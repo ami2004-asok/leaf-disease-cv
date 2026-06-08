@@ -28,10 +28,11 @@ leaf-disease-cv/
 │   └── processed/
 │
 ├── src/
+|    └── gpu_check.py
+|
 ├── models/
 ├── notebooks/
 │
-├── gpu_check.py
 ├── README.md
 ├── requirements.txt
 └── .gitignore
