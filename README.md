@@ -66,15 +66,16 @@ leaf-disease-cv/
 * scikit-learn 
 
 
-## Batch visualization confirming shape:
- # Dataloader Verification
-
+# Batch visualization confirming shape:
+ ## Dataloader Verification
+  
 Dataset Size: 4360
 Batch Shape: torch.Size([32, 3, 224, 224])
-Sample Labels: tensor([3, 0, 0, 2, 1])
+Sample Labels: tensor([0, 2, 2, 3, 2])
 
-## Class Imbalance Summary
- # Class Distribution
+
+# Class Imbalance Summary
+ ## Class Distribution
 
 early_blight    : 1000
 healthy         : 1591
