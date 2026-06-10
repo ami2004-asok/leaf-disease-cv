@@ -25,14 +25,33 @@ leaf-disease-cv/
 │
 ├── data/
 │   ├── raw/
-│   └── processed/
+│   │   ├── healthy/
+│   │   ├── early_blight/
+│   │   ├── late_blight/
+│   │   └── leaf_mold/
+│   ├── processed/
+|   ├── train/
+│   │   ├── healthy/
+│   │   ├── early_blight/
+│   │   ├── late_blight/
+│   │   └── leaf_mold/
+│   │
+│   └── val/
+│       ├── healthy/
+│       ├── early_blight/
+│       ├── late_blight/
+│       └── leaf_mold/
 │
 ├── src/
+|    ├── dataset.py
+│    ├── class_distribution.py
+│    ├── visualize_batch.py
 |    └── gpu_check.py
 |
 ├── models/
 ├── notebooks/
 │
+├──split_dataset.py
 ├── README.md
 ├── requirements.txt
 └── .gitignore
@@ -44,36 +63,24 @@ leaf-disease-cv/
 * TorchVision
 * Pillow
 * Matplotlib
+* scikit-learn 
 
-## Setup
 
-1. Create and activate a virtual environment.
+## Batch visualization confirming shape:
+ # Dataloader Verification
 
-2. Install dependencies:
+Dataset Size: 4360
+Batch Shape: torch.Size([32, 3, 224, 224])
+Sample Labels: tensor([3, 0, 0, 2, 1])
 
-```bash
-pip install torch torchvision pillow matplotlib
-```
+## Class Imbalance Summary
+ # Class Distribution
 
-3. Run the verification script:
+early_blight    : 1000
+healthy         : 1591
+late_blight     : 1909
+leaf_mold       : 952
 
-```bash
-python gpu_check.py
-```
-
-## Status
-
-✅ Virtual environment created
-
-✅ PyTorch installed
-
-✅ TorchVision installed
-
-✅ Environment verification completed
-
-✅ GPU/CPU status documented
-
-✅ Project folder structure created
 
 ## Author
 
