@@ -3,9 +3,11 @@ from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 
+# Class names
 CLASS_NAMES = ["early_blight", "healthy", "late_blight", "leaf_mold"]
 CLASS_TO_IDX = {name: i for i, name in enumerate(CLASS_NAMES)}
 
+# Image transformations
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
@@ -17,7 +19,7 @@ transform = transforms.Compose([
 
 
 class LeafDiseaseDataset(Dataset):
-    def __init__(self, root: str, transform=None):
+    def __init__(self, root, transform=None):
         self.root = Path(root)
         self.transform = transform
         self.samples = []
@@ -29,12 +31,7 @@ class LeafDiseaseDataset(Dataset):
                 continue
 
             for img_path in class_dir.glob("*"):
-
-                if img_path.suffix.lower() in [
-                    ".jpg",
-                    ".jpeg",
-                    ".png"
-                ]:
+                if img_path.suffix.lower() in [".jpg", ".jpeg", ".png"]:
                     self.samples.append(
                         (img_path, CLASS_TO_IDX[class_name])
                     )
@@ -53,9 +50,12 @@ class LeafDiseaseDataset(Dataset):
         return image, label
 
 
-# TRAIN DATASET
+# -------------------------
+# Training Dataset
+# -------------------------
+
 train_ds = LeafDiseaseDataset(
-    "data/train",
+    root="data/train",
     transform=transform
 )
 
@@ -66,9 +66,30 @@ train_loader = DataLoader(
     num_workers=0
 )
 
-# TEST ONE BATCH
-images, labels = next(iter(train_loader))
+# -------------------------
+# Validation Dataset
+# -------------------------
 
-print("Dataset Size:", len(train_ds))
-print("Batch Shape:", images.shape)
-print("Sample Labels:", labels[:5])
+val_ds = LeafDiseaseDataset(
+    root="data/val",
+    transform=transform
+)
+
+val_loader = DataLoader(
+    val_ds,
+    batch_size=32,
+    shuffle=False,
+    num_workers=0
+)
+
+# -------------------------
+# Testing Section
+# -------------------------
+
+if __name__ == "__main__":
+    images, labels = next(iter(train_loader))
+
+    print("Train Dataset Size:", len(train_ds))
+    print("Validation Dataset Size:", len(val_ds))
+    print("Batch Shape:", images.shape)
+    print("Sample Labels:", labels[:5])
