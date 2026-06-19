@@ -2,11 +2,13 @@ from pathlib import Path
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
+from transforms import train_transform, val_transform
 
 # Class names
 CLASS_NAMES = ["early_blight", "healthy", "late_blight", "leaf_mold"]
 CLASS_TO_IDX = {name: i for i, name in enumerate(CLASS_NAMES)}
 
+"""
 # Image transformations
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -15,7 +17,8 @@ transform = transforms.Compose([
         mean=[0.485, 0.456, 0.406],
         std=[0.229, 0.224, 0.225]
     ),
-])
+]) 
+"""
 
 
 class LeafDiseaseDataset(Dataset):
@@ -56,7 +59,7 @@ class LeafDiseaseDataset(Dataset):
 
 train_ds = LeafDiseaseDataset(
     root="data/train",
-    transform=transform
+    transform=train_transform
 )
 
 train_loader = DataLoader(
@@ -72,7 +75,7 @@ train_loader = DataLoader(
 
 val_ds = LeafDiseaseDataset(
     root="data/val",
-    transform=transform
+    transform=val_transform
 )
 
 val_loader = DataLoader(

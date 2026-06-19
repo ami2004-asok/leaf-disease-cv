@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+early_blight       0.98      0.97      0.98       200
+     healthy       0.99      1.00      1.00       319
+ late_blight       0.98      0.98      0.98       382
+   leaf_mold       0.99      0.98      0.99       191
+
+    accuracy                           0.99      1092
+   macro avg       0.99      0.99      0.99      1092
+weighted avg       0.99      0.99      0.99      1092
