@@ -102,7 +102,15 @@ A custom Convolutional Neural Network (CNN) was implemented as the baseline mode
 
 * Max Pooling
 
+* Convolution Layer 4 (256 Filters)
+
+* ReLU
+
+* AdaptiveAvgPool
+
 * Fully Connected Layer
+
+* Dropout (0.3)
 
 * Output Layer (4 Classes)
 
