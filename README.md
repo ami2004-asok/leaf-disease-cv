@@ -223,6 +223,8 @@ reports/
     ├── error_1.png
     └── ...
 ```
+---
+
 ## Preprocessing Specification
 
 ### Input Size
@@ -245,6 +247,8 @@ Std:
 1 -> healthy
 2 -> late_blight
 3 -> leaf_mold
+
+---
 
 ## Smoke Test Results
 
