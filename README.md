@@ -223,6 +223,53 @@ reports/
     ├── error_1.png
     └── ...
 ```
+# Preprocessing Specification
+
+## Input Size
+224 x 224
+
+## Color Format
+RGB
+
+## Normalization
+
+Mean:
+[0.485, 0.456, 0.406]
+
+Std:
+[0.229, 0.224, 0.225]
+
+## Class Mapping
+
+0 -> early_blight
+1 -> healthy
+2 -> late_blight
+3 -> leaf_mold
+
+# Smoke Test Results
+
+## Objective
+
+Verify that the exported ResNet18 model can successfully perform inference on unseen validation images.
+
+## Test Commands and Results
+
+| Image Path                                                                      | Actual Class | Predicted Class | Confidence |
+| ------------------------------------------------------------------------------- | ------------ | --------------- | ---------- |
+| data/val/late_blight/0b52ebed-e711-41f2-bfd1-af73410b370e___RS_Late.B 5463.jpg  | late_blight  | late_blight     | 99.97%     |
+| data/val/early_blight/8fd0e481-6590-4314-8dd9-975e5da774c8___RS_Erly.B 9559.jpg | early_blight | early_blight    | 99.95%     |
+| data/val/leaf_mold/561e6144-f53b-477e-96ef-88deff234bc6___Crnl_L.Mold 6855.jpg  | leaf_mold    | leaf_mold       | 99.97%     |
+
+## Summary
+
+* Total test images: 3
+* Correct predictions: 3
+* Smoke test accuracy: 100%
+
+## Conclusion
+
+The exported ResNet18 model successfully performed inference on all three held-out validation images. The CLI prediction script correctly returned the predicted class and confidence score for each image, demonstrating that the model export and inference pipeline are functioning as expected.
+
 
 ---
 
