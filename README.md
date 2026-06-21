@@ -286,7 +286,11 @@ leaf-disease-cv/
 │
 ├── models/
 │   ├── leaf_cnn_best.pth
-│   └── resnet18_best.pth
+│   ├── resnet18_best.pth
+│   └── resnet18_scripted.pt
+│
+├── notebooks/
+│   └── class_names.json
 │
 ├── reports/
 │   ├── confusion_matrix.png
@@ -304,9 +308,9 @@ leaf-disease-cv/
 │   ├── gpu_check.py
 │   ├── trace_shapes.py
 │   ├── visualize_augmentations.py
-│   └── visualize_batch.py
-│
-├── notebooks/
+│   ├── visualize_batch.py
+│   ├── predict.py
+│   └── export_model.py
 │
 ├── augment_samples.png
 ├── sample_batch.png
