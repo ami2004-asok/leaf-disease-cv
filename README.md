@@ -78,7 +78,7 @@ Sample Labels: tensor([0, 2, 2, 3, 2])
 
 ---
 
-## Task 3: CNN Baseline Model
+## CNN Baseline Model
 
 A custom Convolutional Neural Network (CNN) was implemented as the baseline model for leaf disease classification.
 
@@ -123,7 +123,7 @@ A custom Convolutional Neural Network (CNN) was implemented as the baseline mode
 
 ---
 
-## Task 4: Transfer Learning using ResNet18
+## Transfer Learning using ResNet18
 
 Transfer learning was performed using a pretrained ResNet18 model trained on ImageNet.
 
@@ -150,7 +150,7 @@ Transfer learning was performed using a pretrained ResNet18 model trained on Ima
 
 ---
 
-## Task 5: Data Augmentation
+## Data Augmentation
 
 Data augmentation was applied during training to improve generalization and reduce overfitting.
 
@@ -170,7 +170,7 @@ Data augmentation was applied during training to improve generalization and redu
 
 ---
 
-## Task 6: Model Evaluation
+## Model Evaluation
 
 The best-performing ResNet18 model was evaluated using classification metrics and a confusion matrix.
 
@@ -223,15 +223,15 @@ reports/
     ├── error_1.png
     └── ...
 ```
-# Preprocessing Specification
+## Preprocessing Specification
 
-## Input Size
+### Input Size
 224 x 224
 
-## Color Format
+### Color Format
 RGB
 
-## Normalization
+### Normalization
 
 Mean:
 [0.485, 0.456, 0.406]
@@ -239,20 +239,20 @@ Mean:
 Std:
 [0.229, 0.224, 0.225]
 
-## Class Mapping
+### Class Mapping
 
 0 -> early_blight
 1 -> healthy
 2 -> late_blight
 3 -> leaf_mold
 
-# Smoke Test Results
+## Smoke Test Results
 
-## Objective
+### Objective
 
 Verify that the exported ResNet18 model can successfully perform inference on unseen validation images.
 
-## Test Commands and Results
+### Test Commands and Results
 
 | Image Path                                                                      | Actual Class | Predicted Class | Confidence |
 | ------------------------------------------------------------------------------- | ------------ | --------------- | ---------- |
@@ -260,13 +260,13 @@ Verify that the exported ResNet18 model can successfully perform inference on un
 | data/val/early_blight/8fd0e481-6590-4314-8dd9-975e5da774c8___RS_Erly.B 9559.jpg | early_blight | early_blight    | 99.95%     |
 | data/val/leaf_mold/561e6144-f53b-477e-96ef-88deff234bc6___Crnl_L.Mold 6855.jpg  | leaf_mold    | leaf_mold       | 99.97%     |
 
-## Summary
+### Summary
 
 * Total test images: 3
 * Correct predictions: 3
 * Smoke test accuracy: 100%
 
-## Conclusion
+### Conclusion
 
 The exported ResNet18 model successfully performed inference on all three held-out validation images. The CLI prediction script correctly returned the predicted class and confidence score for each image, demonstrating that the model export and inference pipeline are functioning as expected.
 
