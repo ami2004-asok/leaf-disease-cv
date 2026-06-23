@@ -341,6 +341,9 @@ Use the Swagger UI to upload an image and test the `/predict` endpoint directly 
 ```text
 leaf-disease-cv/
 │
+├── api/
+│   └── main.py
+│
 ├── data/
 │   ├── raw/
 │   ├── processed/
@@ -374,6 +377,9 @@ leaf-disease-cv/
 │   ├── visualize_batch.py
 │   ├── predict.py
 │   └── export_model.py
+│
+├── tests/
+│   └── manual_predict.py
 │
 ├── augment_samples.png
 ├── sample_batch.png
