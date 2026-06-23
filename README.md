@@ -277,6 +277,65 @@ The exported ResNet18 model successfully performed inference on all three held-o
 
 ---
 
+## API Testing
+
+### Start the FastAPI Server
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Server will be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+### Health Check
+
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+Example Response:
+
+```json
+{
+  "status": "ok",
+  "model_loaded": true
+}
+```
+
+### Predict Leaf Disease
+
+```bash
+curl -X POST ^
+"http://127.0.0.1:8000/predict" ^
+-F "file=@data/val/late_blight/f84a91cc-ad11-409e-9115-1af741e5726d___RS_Late.B 5166.jpg"
+```
+
+Example Response:
+
+```json
+{
+  "class_name": "late_blight",
+  "confidence": 0.9999,
+  "inference_ms": 94.12
+}
+```
+
+### OpenAPI Documentation
+
+After starting the server, open:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+Use the Swagger UI to upload an image and test the `/predict` endpoint directly from the browser.
+
+---
+
 ## Project Structure
 
 ```text
