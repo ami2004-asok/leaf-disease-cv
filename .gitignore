@@ -10,3 +10,4 @@ data/
 
 # Trained PyTorch models
 *.pth
+!models/resnet18_best.pth
