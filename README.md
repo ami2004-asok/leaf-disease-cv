@@ -336,6 +336,148 @@ Use the Swagger UI to upload an image and test the `/predict` endpoint directly 
 
 ---
 
+# Leaf Disease Detection API - Deployment Guide
+
+## Overview
+
+This project provides a FastAPI-based Leaf Disease Detection API using a trained ResNet18 model. The API accepts leaf images and returns the predicted disease class along with confidence score and inference time.
+
+---
+
+## Prerequisites
+
+* Docker Desktop installed
+* Docker running
+* Project source code available locally
+
+
+---
+
+## Build Docker Image
+
+Open a terminal in the project root directory and run:
+
+```bash
+docker build -t leaf-disease-api .
+```
+
+This command creates a Docker image named `leaf-disease-api`.
+
+---
+
+## Run Docker Container
+
+Start the API container:
+
+```bash
+docker run -p 8000:8000 leaf-disease-api
+```
+
+The API will be available on port 8000.
+
+---
+
+## Environment Variables
+
+The Docker image uses the following environment variable:
+
+```text
+MODEL_PATH=/app/models/resnet18_best.pth
+```
+
+---
+
+## Health Check
+
+Open the following URL in a browser:
+
+```text
+http://localhost:8000/health
+```
+
+Expected response:
+
+```json
+{
+  "status": "ok",
+  "model_loaded": true
+}
+```
+
+---
+
+## API Documentation
+
+FastAPI automatically generates Swagger documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+## Prediction Endpoint
+
+Endpoint:
+
+```text
+POST /predict
+```
+
+Supported image formats:
+
+* JPG
+* JPEG
+* PNG
+
+Example using Swagger UI:
+
+1. Open `/docs`
+2. Expand `POST /predict`
+3. Click `Try it out`
+4. Upload a leaf image
+5. Click `Execute`
+
+Example response:
+
+```json
+{
+  "class_name": "healthy",
+  "confidence": 0.9876,
+  "inference_ms": 12.34
+}
+```
+
+---
+
+## Stopping the Container
+
+Press:
+
+```text
+Ctrl + C
+```
+
+in the terminal running the container.
+
+---
+
+## Docker Image Verification
+
+To verify the image exists:
+
+```bash
+docker images
+```
+
+Expected output should include:
+
+```text
+leaf-disease-api
+```
+
+---
+
 ## Project Structure
 
 ```text
