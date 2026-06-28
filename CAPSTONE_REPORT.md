@@ -43,6 +43,12 @@ The dataset contains tomato leaf images belonging to four classes.
 
 The training set was used to learn model parameters, while the validation set was used to evaluate model performance on unseen images.
 
+### Sample Training Batch
+
+![Sample Training Batch](sample_batch.png)
+
+*Figure 1. A sample batch of tomato leaf images(here,8 images per batch) loaded by the DataLoader before training.*
+
 ---
 
 ## Data Preprocessing
@@ -66,6 +72,12 @@ All images were converted into a common format before training.
 * Normalize using ImageNet Mean and Standard Deviation
 
 Data augmentation improves generalization by exposing the model to different viewpoints, lighting conditions, and orientations during training.
+
+### Data Augmentation Examples
+
+![Augmented Samples](augment_samples.png)
+
+*Figure 2. Examples of image augmentation techniques including random crop, flip, rotation, and color jitter applied during training.*
 
 ---
 
@@ -140,6 +152,12 @@ ResNet18 was selected because:
 
 Transfer learning significantly improved accuracy while reducing validation loss.
 
+### Training Curves
+
+![Training Plot](training_plot.png)
+
+*Figure 3. Training and validation accuracy/loss during model training. The ResNet18 model converges with high accuracy and low validation loss.*
+
 ---
 
 # 3. Metrics & Error Analysis
@@ -168,6 +186,13 @@ The final ResNet18 model achieved the following performance.
 The model demonstrates strong and balanced performance across all four disease classes.
 
 ---
+
+## Confusion Matrix
+
+![Confusion Matrix](reports/confusion_matrix.png)
+
+*Figure 4. Confusion matrix of the ResNet18 model evaluated on the validation dataset.*
+
 
 ## Confusion Matrix Analysis
 
